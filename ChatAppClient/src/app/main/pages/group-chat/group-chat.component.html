@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="main-body">
+    
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">User Grid</li>
+            </ol>
+          </nav>
+          <!-- /Breadcrumb -->
+
+          <!-- search bar -->
+
+          <input style="margin-bottom: 30px; margin-top: 10px;" type="text" class="form-control" placeholder="Search by Username" />
+
+          <!-- end search bar-->
+    
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 gutters-sm"  >
+            <div class="col mb-3" *ngFor=" let group of groups; " >
+              <div class="card">
+                <img src="../../../../assets/images/group.png"   alt="Cover" class="card-img-top">
+                <div class="card-body text-center">
+                  <h5 class="card-title" style="color: rgb(81, 133, 236);">{{group?.name}} </h5>
+                </div>
+                <div class="card-footer">
+                  <button (click)="join(group.value)" class="btn btn-light btn-sm bg-white has-icon btn-block" type="button"><i class="material-icons">Enter Discussion</i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>

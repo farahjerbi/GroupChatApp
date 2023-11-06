@@ -1,0 +1,103 @@
+/* chat.component.scss */
+
+// Define blue color
+$blue: #007bff;
+
+// Main container
+.container-fluid {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+// Connected Users Column
+.col-md-4 {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 2px 2px 5px #888888;
+}
+
+// Leave Chat button
+.btn-secondary {
+  background-color: #dc3545;
+  border: none;
+}
+
+// Chat Column
+.col-md-8 {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 2px 2px 5px #888888;
+}
+
+// Chat messages
+.chat-container {
+  overflow-y: auto;
+  max-height: 400px; /* Adjust the height as needed */
+}
+
+// Chat message styling
+.incoming_msg {
+  background: #f1f0f0;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.outgoing_msg {
+  background: $blue;
+  color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.incoming_msg_img {
+  width: 50px;
+  float: left;
+}
+
+.recieved_msg {
+  display: flex;
+  flex-direction: column;
+}
+
+.recieved_withd_msg {
+  padding-left: 40px;
+  text-align: left;
+  b{
+    margin-bottom: 0;
+  }
+  .time_date {
+    color: rgb(184, 186, 226);
+    font-size: 12px;
+  }
+}
+
+.sent_msg {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  p {
+    margin-bottom: 0;
+  }
+  .time_date {
+    color: white;
+    font-size: 12px;
+  }
+}
+
+// Input area
+.form-group {
+  margin: 0;
+}
+
+// Send button
+.btn-primary {
+  background-color: $blue;
+  border: none;
+}
+

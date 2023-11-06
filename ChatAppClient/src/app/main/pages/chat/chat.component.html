@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Connected Users Column -->
+    <div class="col-md-4">
+      <h4>Connected Users</h4>
+      <div *ngFor="let user of chatService.connectedUsers$ | async">
+        <b style="margin-left: 6px; margin-bottom: 5px; font-size: medium; color: rgb(38, 38, 161);">{{user}}</b>
+      </div>
+      <button class="btn btn-info" (click)="leaveChat()">Leave Chat</button>
+    </div>
+
+    <!-- Chat Column -->
+    <div class="col-md-8">
+      <div #scrollMe class="chat-container">
+        <div *ngFor="let message of chatService.messages$ | async">
+          <div [ngClass]="{'incoming_msg': message.user != loggedInUserName, 'outgoing_msg': message.user === loggedInUserName }">
+            <div *ngIf="message.user != loggedInUserName" class="incoming_msg_img">
+              <img src="" alt="">
+            </div>
+            <div *ngIf="message.user != loggedInUserName" class="recieved_msg">
+              <div class="recieved_withd_msg">
+                <p><b>{{message.message}}</b></p>
+                <span class="time_date">{{message.user}} || {{message.messageTime | date:'medium'}}</span>
+              </div>
+            </div>
+            <div *ngIf="message.user === loggedInUserName" class="sent_msg">
+              <p><b>{{message.message}}</b></p>
+              <span class="time_date">{{message.user}} || {{message.messageTime | date:'medium'}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-10">
+            <div class="form-group mb-0">
+              <input type="text" [(ngModel)]="inputMessage" (keydown.enter)="sendMessage()" />
+            </div>
+          </div>
+          <div class="col-md-2">
+            <button (click)="sendMessage()" class="btn btn-primary">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
